@@ -16,7 +16,7 @@ function App() {
         target="_blank"
       >
         <button className="btn btn-powered-by">
-          Powered by <strong> Typeform</strong>
+          <span> Powered by</span> <strong> Typeform</strong>
         </button>
       </a>
     </div>

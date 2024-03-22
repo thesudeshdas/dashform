@@ -5,6 +5,9 @@
     box-shadow;
   transition-timing-function: ease-in-out;
   background-color: var(--BRAND_PRIMARY);
+  padding: 6px 14px;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .btn:hover {
@@ -13,4 +16,11 @@
 
 .btn:active {
   background-color: var(--BRAND_PRIMARY_ACTIVE);
+}
+
+@media (min-width: 600px) {
+  .btn {
+    font-size: 20px;
+    line-height: 26px;
+  }
 }

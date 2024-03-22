@@ -1,0 +1,51 @@
+.intro-container p,
+ul {
+  color: var(--TEXT_PRIMARY_LIGHT);
+  font-size: 16px;
+}
+
+.intro-container ul {
+  padding: 0;
+  padding-left: 12px;
+  list-style-position: inside;
+  list-style: "- ";
+}
+
+.intro-heading {
+  color: var(--TEXT_PRIMARY);
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.intro-instruction {
+  margin-top: 8px;
+}
+
+.intro-instruction:nth-of-type(2),
+.intro-container button {
+  margin-top: 24px;
+}
+
+@media (min-width: 600px) {
+  .intro-container p,
+  ul {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .intro-heading {
+    color: var(--TEXT_PRIMARY);
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .intro-instruction {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .intro-instruction:nth-of-type(2),
+  .intro-container button {
+    margin-top: 32px;
+  }
+}

@@ -1,0 +1,24 @@
+.question {
+  color: var(--TEXT_PRIMARY);
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.instruction {
+  color: var(--TEXT_PRIMARY_LIGHT);
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+@media (min-width: 600px) {
+  .question {
+    color: var(--TEXT_PRIMARY);
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .instruction {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}

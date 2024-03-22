@@ -25,6 +25,10 @@
   line-height: 1;
 }
 
+.btn-powered-by > span {
+  font-weight: 400;
+}
+
 @media (min-width: 600px) {
   .brand-logo {
     top: 37px;
@@ -34,7 +38,7 @@
   .btn-powered-by {
     bottom: 16px;
     right: 16px;
-    font-size: 14px;
+    font-size: 14px !important; /* Using !important here because we want to keep using the .btn class along with this. Using both leads to the utilities.css taking priority over App.css, which in turn overwrites this media query the utilities.css media queries */
   }
 }
 
