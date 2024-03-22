@@ -1,0 +1,16 @@
+.btn {
+  border-radius: 4px;
+  transition-duration: 0.1s;
+  transition-property: background-color, color, border-color, opacity,
+    box-shadow;
+  transition-timing-function: ease-in-out;
+  background-color: var(--BRAND_PRIMARY);
+}
+
+.btn:hover {
+  background-color: var(--BRAND_PRIMARY_HOVER);
+}
+
+.btn:active {
+  background-color: var(--BRAND_PRIMARY_ACTIVE);
+}
