@@ -53,6 +53,19 @@ const authReducer = (
             : 2,
       };
 
+    case "FILL_ROLE":
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          role: payload?.formData?.role,
+        },
+        dataProgress:
+          payload?.formData?.role && payload?.formData?.role?.length > 0
+            ? 4
+            : 3,
+      };
+
     case "VALIDATION_ERROR":
       return {
         ...state,

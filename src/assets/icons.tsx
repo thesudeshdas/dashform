@@ -35,7 +35,7 @@ export function LucideCheck(props: SVGProps<SVGSVGElement>) {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="2"
+        strokeWidth="3"
         d="M20 6L9 17l-5-5"
       ></path>
     </svg>
