@@ -1,12 +1,10 @@
-import { FistNameForm, LastNameForm } from "..";
+import { FistNameForm, IndustryForm, LastNameForm } from "..";
 import useFormContext from "../../contexts/FormContext/formContext.hook";
 import Introduction from "../Introduction/Introduction";
 import "./Content.css";
 
 const Content = () => {
   const { formState } = useFormContext();
-
-  console.log({ formState });
 
   const renderScreen = (activeQuestion: number) => {
     switch (activeQuestion) {
@@ -18,6 +16,9 @@ const Content = () => {
 
       case 2:
         return <LastNameForm />;
+
+      case 3:
+        return <IndustryForm />;
 
       default:
         return <Introduction />;

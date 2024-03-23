@@ -7,6 +7,7 @@ input {
   font-size: 24px;
   padding-bottom: 8px;
   font-family: "Questrial", sans-serif;
+  margin-top: 32px;
 }
 
 input::placeholder {
@@ -19,6 +20,58 @@ input:focus {
   box-shadow: rgb(255, 255, 255) 0px 2px;
 }
 
+.select-container {
+  position: relative;
+}
+
+.select-button-icon {
+  position: absolute;
+  right: 8px;
+  bottom: 12px;
+}
+
+.select-dropdown {
+  margin-top: 8px;
+  list-style: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  max-height: 0;
+  overflow-y: scroll;
+  position: absolute;
+  top: 72px;
+  width: 100%;
+  max-width: 640px;
+  z-index: 1;
+  background-color: #000101;
+  height: 0;
+  transition: max-height 150ms ease-out 0s;
+}
+
+input:focus + .select-dropdown,
+.select-dropdown:focus {
+  height: auto;
+  max-height: 43vh;
+}
+
+.select-dropdown li {
+  border-radius: 4px;
+  background-color: rgb(26, 26, 26);
+  box-shadow: rgba(255, 255, 255, 0.6) 0px 0px 0px 1px inset;
+  transition-duration: 0.1s;
+  transition-property: background-color, color, border-color, opacity,
+    box-shadow;
+  transition-timing-function: ease-out;
+  padding: 4px 12px;
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+
+.select-dropdown li:hover {
+  background-color: rgb(77, 77, 77);
+}
+
 @media (min-width: 600px) {
   input {
     font-size: 30px;
@@ -26,5 +79,9 @@ input:focus {
 
   input::placeholder {
     font-size: 30px;
+  }
+
+  .select-dropdown li {
+    font-size: 20px;
   }
 }

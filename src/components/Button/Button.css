@@ -12,6 +12,7 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -27,4 +28,13 @@
     font-size: 20px;
     line-height: 26px;
   }
+}
+
+.btn-ghost {
+  background-color: transparent;
+  padding: 0;
+}
+
+.btn-ghost:hover {
+  background-color: transparent;
 }

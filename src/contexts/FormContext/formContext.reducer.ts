@@ -40,6 +40,19 @@ const authReducer = (
             : 1,
       };
 
+    case "FILL_INDUSTRY":
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          industry: payload?.formData?.industry,
+        },
+        dataProgress:
+          payload?.formData?.industry && payload?.formData?.industry?.length > 0
+            ? 3
+            : 2,
+      };
+
     case "VALIDATION_ERROR":
       return {
         ...state,

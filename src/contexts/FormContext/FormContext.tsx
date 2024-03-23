@@ -6,15 +6,16 @@ import {
 import authReducer from "./formContext.reducer";
 
 const initialFormContextState: IFormContextState = {
-  activeQuestion: 0,
+  activeQuestion: 3,
   dataProgress: 0,
   totalQuestions: 8,
   formData: {
     firstName: "",
     lastName: "",
+    industry: "",
   },
-  error: true,
-  errorMessage: "Please fill this in",
+  error: false,
+  errorMessage: "",
 };
 
 export const FormContext = createContext<IFormContext>({

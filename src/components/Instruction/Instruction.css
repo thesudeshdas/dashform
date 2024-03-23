@@ -1,0 +1,11 @@
+.instruction {
+  color: var(--TEXT_PRIMARY_LIGHT);
+  font-size: 16px;
+}
+
+@media (min-width: 600px) {
+  .instruction {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
