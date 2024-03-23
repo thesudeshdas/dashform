@@ -1,5 +1,6 @@
 import Button from "./Button/Button";
 import Content from "./Content/Content";
+import ErrorMessage from "./ErrorMessage/ErrorMessage";
 import ProgressBar from "./ProgressBar/ProgressBar";
 import Question from "./Question/Question";
 
@@ -11,6 +12,7 @@ import TextInput from "./Inputs/TextInput/TextInput";
 export {
   Button,
   Content,
+  ErrorMessage,
   ProgressBar,
   Question,
   FistNameForm,

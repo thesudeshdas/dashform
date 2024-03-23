@@ -7,6 +7,14 @@ import authReducer from "./formContext.reducer";
 
 const initialFormContextState: IFormContextState = {
   activeQuestion: 0,
+  dataProgress: 0,
+  totalQuestions: 8,
+  formData: {
+    firstName: "",
+    lastName: "",
+  },
+  error: true,
+  errorMessage: "Please fill this in",
 };
 
 export const FormContext = createContext<IFormContext>({

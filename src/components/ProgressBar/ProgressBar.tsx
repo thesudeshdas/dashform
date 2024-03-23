@@ -1,11 +1,16 @@
 import "./ProgressBar.css";
 
-const ProgressBar = () => {
+// declare props types
+type IProgressBarProps = {
+  value: number;
+};
+
+const ProgressBar = ({ value }: IProgressBarProps) => {
   return (
     <progress
       id="form_progress"
       max={100}
-      value={20}
+      value={value}
       className="progress-bar"
     ></progress>
   );

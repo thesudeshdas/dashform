@@ -22,4 +22,7 @@
   --TEXT_PRIMARY: rgb(255, 255, 255);
   --TEXT_PRIMARY_LIGHT: rgba(255, 255, 255, 0.7);
   --TEXT_PLACEHOLDER: rgb(77, 77, 77);
+  --TEXT_ERROR: rgb(175, 4, 4);
+
+  --BACKGROUND_ERROR: rgb(247, 230, 230);
 }

@@ -1,24 +1,53 @@
-import { Button, Question, TextInput } from "../..";
-import { LucideArrowRight } from "../../../assets/icons";
+import { ChangeEvent } from "react";
+import { Button, ErrorMessage, Question, TextInput } from "../..";
+import { LucideCheck } from "../../../assets/icons";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
 
 import "../Form.css";
 
 const FistNameForm = () => {
-  const { formDispatch } = useFormContext();
+  const { formState, formDispatch } = useFormContext();
 
   const handleGoNext = () => {
-    formDispatch({ type: "GO_NEXT_QUESTION", payload: {} });
+    if (!validateFirstName()) {
+      return formDispatch({
+        type: "VALIDATION_ERROR",
+        payload: {
+          error: true,
+          errorMessage: "Please fill this in",
+        },
+      });
+    }
+    return formDispatch({ type: "GO_NEXT_QUESTION", payload: {} });
   };
+
+  const handleFirstNameChange = (event: ChangeEvent<HTMLInputElement>) => {
+    formDispatch({
+      type: "CLEAR_ERRORS",
+      payload: {},
+    });
+
+    formDispatch({
+      type: "FILL_FIRST_NAME",
+      payload: { formData: { firstName: event.target.value.trim() } },
+    });
+  };
+
+  const validateFirstName = () =>
+    (formState?.formData?.firstName ?? "")?.length > 0;
 
   return (
     <div className="form-container">
       <Question question="What's your first name?*" questionNumber={1} />
 
       <div className="form-content">
-        <TextInput />
+        <TextInput onChange={handleFirstNameChange} />
 
-        <Button label="OK" icon={<LucideArrowRight />} onClick={handleGoNext} />
+        {formState?.error ? (
+          <ErrorMessage message={formState?.errorMessage} />
+        ) : (
+          <Button label="OK" icon={<LucideCheck />} onClick={handleGoNext} />
+        )}
       </div>
     </div>
   );

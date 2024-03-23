@@ -5,19 +5,17 @@
 }
 
 .form-content {
-  padding-top: 16px;
+  padding-top: 32px;
 }
 
-.form-container button {
+.form-container button,
+.form-container .error-container {
   margin-top: 24px;
 }
 
 @media (min-width: 600px) {
-  .form-content {
-    /* padding-left: 40px; */
-  }
-
-  .form-container button {
+  .form-container button,
+  .form-container .error-container {
     margin-top: 32px;
   }
 }

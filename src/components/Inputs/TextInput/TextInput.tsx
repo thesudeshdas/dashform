@@ -1,9 +1,19 @@
+import { ChangeEventHandler } from "react";
 import "../Inputs.css";
 
-const TextInput = () => {
+// declare props types
+type ITextInput = {
+  onChange: ChangeEventHandler<HTMLInputElement>;
+};
+
+const TextInput = ({ onChange }: ITextInput) => {
   return (
     <label>
-      <input type="text" placeholder="Type your answer here..." />
+      <input
+        type="text"
+        placeholder="Type your answer here..."
+        onChange={onChange}
+      />
     </label>
   );
 };

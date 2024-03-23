@@ -1,10 +1,15 @@
 import { Content, ProgressBar } from "./components";
 import "./App.css";
+import useFormContext from "./contexts/FormContext/formContext.hook";
 
 function App() {
+  const { formState } = useFormContext();
+
   return (
     <div className="app">
-      <ProgressBar />
+      <ProgressBar
+        value={(formState.dataProgress / formState?.totalQuestions) * 100}
+      />
 
       <img src="/growthX-logo.png" alt="GrowthX" className="brand-logo" />
 
