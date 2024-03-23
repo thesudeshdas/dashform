@@ -1,6 +1,14 @@
+import { Button } from "..";
+import useFormContext from "../../contexts/FormContext/formContext.hook";
 import "./Introduction.css";
 
 const Introduction = () => {
+  const { formDispatch } = useFormContext();
+
+  const handleStart = () => {
+    formDispatch({ type: "GO_NEXT_QUESTION", payload: {} });
+  };
+
   return (
     <div className="intro-container">
       <h2 className="intro-heading">Up-skilling requires time commitment</h2>
@@ -16,7 +24,7 @@ const Introduction = () => {
         <li>15 hours/week for the last 3 weeks</li>
       </ul>
 
-      <button className="btn">I agree</button>
+      <Button label="I agree" onClick={handleStart} />
     </div>
   );
 };

@@ -1,16 +1,22 @@
+import { LucideArrowRight } from "../../assets/icons";
 import "./Question.css";
 
 // declare props types
 type IQuestionProps = {
   question: string;
-  instruction?: string;
+  questionNumber: number;
 };
 
-const Question = ({ question, instruction }: IQuestionProps) => {
+const Question = ({ question, questionNumber }: IQuestionProps) => {
   return (
-    <div>
+    <div className="question-wrapper">
+      <h2 className="question-number">{questionNumber}</h2>
+
+      <div className="question-arrow-container">
+        <LucideArrowRight />
+      </div>
+
       <h2 className="question">{question}</h2>
-      <p className="instruction">{instruction}</p>
     </div>
   );
 };

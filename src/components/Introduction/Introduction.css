@@ -1,3 +1,8 @@
+.intro-container {
+  max-width: 720px;
+  padding: 0 40px;
+}
+
 .intro-container p,
 ul {
   color: var(--TEXT_PRIMARY_LIGHT);

@@ -1,0 +1,23 @@
+.form-container {
+  padding: 0 40px 0 40px;
+  width: 100%;
+  max-width: 720px;
+}
+
+.form-content {
+  padding-top: 16px;
+}
+
+.form-container button {
+  margin-top: 24px;
+}
+
+@media (min-width: 600px) {
+  .form-content {
+    /* padding-left: 40px; */
+  }
+
+  .form-container button {
+    margin-top: 32px;
+  }
+}

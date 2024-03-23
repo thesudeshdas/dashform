@@ -1,0 +1,30 @@
+.btn {
+  border-radius: 4px;
+  transition-duration: 0.1s;
+  transition-property: background-color, color, border-color, opacity,
+    box-shadow;
+  transition-timing-function: ease-in-out;
+  background-color: var(--BRAND_PRIMARY);
+  padding: 6px 14px;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.btn:hover {
+  background-color: var(--BRAND_PRIMARY_HOVER);
+}
+
+.btn:active {
+  background-color: var(--BRAND_PRIMARY_ACTIVE);
+}
+
+@media (min-width: 600px) {
+  .btn {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
