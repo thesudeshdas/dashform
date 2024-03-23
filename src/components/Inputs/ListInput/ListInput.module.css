@@ -60,6 +60,7 @@
 
 .list_dropdown_item_selected {
   box-shadow: rgba(255, 255, 255, 0.8) 0px 0px 0px 2px inset;
+  animation: twinkle 0.25s ease 2 normal running;
 }
 
 .list_dropdown_item_selected > span {
@@ -79,5 +80,21 @@
 @media (min-width: 600px) {
   .list_dropdown > .list_dropdown_item {
     font-size: 20px;
+  }
+}
+
+@keyframes twinkle {
+  from {
+    box-shadow: rgba(255, 255, 255, 0.6) 0px 0px 0px 1px inset;
+    background-color: var(--BACKGROUND_PRIMARY);
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  to {
+    box-shadow: rgba(255, 255, 255, 0.8) 0px 0px 0px 2px inset;
+    background-color: rgb(26, 26, 26);
   }
 }
