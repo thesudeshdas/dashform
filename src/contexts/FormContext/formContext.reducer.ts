@@ -66,6 +66,19 @@ const authReducer = (
             : 3,
       };
 
+    case "FILL_GOALS":
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          goals: payload?.formData?.goals,
+        },
+        dataProgress:
+          payload?.formData?.goals && payload?.formData?.goals?.length > 0
+            ? 5
+            : 4,
+      };
+
     case "VALIDATION_ERROR":
       return {
         ...state,

@@ -5,6 +5,7 @@ export interface IFormData {
   lastName: string;
   industry: string;
   role: string;
+  goals: string[];
 }
 
 export interface IFormContextState {
@@ -29,6 +30,7 @@ export interface IFormReducerActions {
     | "FILL_LAST_NAME"
     | "FILL_INDUSTRY"
     | "FILL_ROLE"
+    | "FILL_GOALS"
     | "VALIDATION_ERROR"
     | "CLEAR_ERRORS";
   payload: Partial<IFormContextState>;
