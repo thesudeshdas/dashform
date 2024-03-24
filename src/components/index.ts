@@ -19,6 +19,8 @@ import SelectInput from "./Inputs/SelectInput/SelectInput";
 import TextInput from "./Inputs/TextInput/TextInput";
 
 import FormCompletion from "./FormCompletion/FormCompletion";
+import Introduction from "./Introduction/Introduction";
+import SplashScreen from "./SplashScreen/SplashScreen";
 
 export {
   Button,
@@ -39,4 +41,6 @@ export {
   SelectInput,
   TextInput,
   FormCompletion,
+  Introduction,
+  SplashScreen,
 };

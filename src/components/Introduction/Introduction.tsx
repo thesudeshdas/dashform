@@ -1,4 +1,4 @@
-import { Button } from "..";
+import { Button, SplashScreen } from "..";
 import useFormContext from "../../contexts/FormContext/formContext.hook";
 import "./Introduction.css";
 
@@ -11,6 +11,8 @@ const Introduction = () => {
 
   return (
     <div className="intro-container">
+      <SplashScreen />
+
       <h2 className="intro-heading">Up-skilling requires time commitment</h2>
       <p className="intro-instruction">
         The GrowthX experience is designed by keeping in mind the working hours

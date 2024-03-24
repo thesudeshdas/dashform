@@ -88,8 +88,8 @@ const authReducer = (
         },
         dataProgress:
           payload?.formData?.email && payload?.formData?.email?.length > 0
-            ? 2
-            : 1,
+            ? 6
+            : 5,
       };
 
     case "FILL_PHONE":
@@ -101,8 +101,8 @@ const authReducer = (
         },
         dataProgress:
           payload?.formData?.phone && payload?.formData?.phone?.length > 0
-            ? 2
-            : 1,
+            ? 7
+            : 6,
       };
 
     case "VALIDATION_ERROR":

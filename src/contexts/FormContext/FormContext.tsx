@@ -8,7 +8,7 @@ import authReducer from "./formContext.reducer";
 const initialFormContextState: IFormContextState = {
   activeQuestion: 0,
   dataProgress: 0,
-  totalQuestions: 8,
+  totalQuestions: 7,
   formData: {
     firstName: "",
     lastName: "",

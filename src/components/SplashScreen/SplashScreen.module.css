@@ -1,0 +1,84 @@
+.splash_screen {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--BACKGROUND_PRIMARY);
+  opacity: 1;
+  animation: fadeOut 300ms ease-in-out 1s forwards;
+}
+
+.splash_screen_hidden {
+  opacity: 0;
+}
+
+.splash_brand_logo {
+  max-width: 120px;
+  max-height: 40px;
+  animation: 600ms ease-in-out 1 forwards slideIn;
+  opacity: 0.01;
+}
+
+.splash_progress_container {
+  width: 200px;
+  height: 5px;
+  background-color: rgb(26, 26, 26);
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+}
+
+.splash_progress_runner {
+  position: absolute;
+  background-color: var(--TEXT_PRIMARY);
+  top: 0;
+  left: -100%;
+  height: 5px;
+  width: 100px;
+  border-radius: 999px;
+  animation: run 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0.01;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes run {
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+  100% {
+    left: 107%;
+    right: -8%;
+  }
+}

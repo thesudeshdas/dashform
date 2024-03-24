@@ -4,12 +4,12 @@ import {
   FormCompletion,
   GoalsForm,
   IndustryForm,
+  Introduction,
   LastNameForm,
   PhoneForm,
   RoleForm,
 } from "..";
 import useFormContext from "../../contexts/FormContext/formContext.hook";
-import Introduction from "../Introduction/Introduction";
 import "./Content.css";
 
 const Content = () => {
