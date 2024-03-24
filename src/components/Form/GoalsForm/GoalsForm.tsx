@@ -10,7 +10,9 @@ import { LucideCheck } from "../../../assets/icons";
 const GoalsForm = () => {
   const { formState, formDispatch } = useFormContext();
 
-  const [selectedGoals, setSelectedGoals] = useState<string[]>([]);
+  const [selectedGoals, setSelectedGoals] = useState<string[]>(
+    formState.formData.goals || []
+  );
 
   const handleGoNext = () => {
     if (!validateGoals()) {
@@ -54,6 +56,7 @@ const GoalsForm = () => {
           }
           multiSelection
           maxSelections={2}
+          defaultValue={selectedGoals}
         />
 
         {formState?.error ? (

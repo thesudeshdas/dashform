@@ -5,18 +5,20 @@ import {
 } from "../../types/formContext/formContext.types";
 import authReducer from "./formContext.reducer";
 
+const localFormData = JSON.parse(localStorage.getItem("formData") || "");
+
 const initialFormContextState: IFormContextState = {
   activeQuestion: 0,
   dataProgress: 0,
   totalQuestions: 7,
   formData: {
-    firstName: "",
-    lastName: "",
-    industry: "",
-    role: "",
-    goals: [],
-    email: "",
-    phone: "",
+    firstName: localFormData.firstName || "",
+    lastName: localFormData.lastName || "",
+    industry: localFormData.industry || "",
+    role: localFormData.role || "",
+    goals: localFormData.goals || [],
+    email: localFormData.email || "",
+    phone: localFormData.phone || "",
   },
   error: false,
   errorMessage: "",

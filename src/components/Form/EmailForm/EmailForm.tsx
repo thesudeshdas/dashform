@@ -59,7 +59,11 @@ const EmailForm = () => {
       <div className="form-content">
         <Instruction message="We will keep all our communications with you through this email. Do check your spam inbox if you can't find our application received email." />
 
-        <TextInput onChange={handleChange} placeholder="name@example.com" />
+        <TextInput
+          defaultValue={formState?.formData?.email}
+          onChange={handleChange}
+          placeholder="name@example.com"
+        />
 
         {formState?.error ? (
           <ErrorMessage message={formState?.errorMessage} />

@@ -7,7 +7,7 @@ import useFormContext from "../../../contexts/FormContext/formContext.hook";
 const PhoneForm = () => {
   const { formState, formDispatch } = useFormContext();
 
-  const [phone, setPhone] = useState<string>("");
+  const [phone, setPhone] = useState<string>(formState.formData.phone || "");
 
   const handleGoNext = () => {
     if (formState?.formData?.phone?.length === 0) {
@@ -31,8 +31,6 @@ const PhoneForm = () => {
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value);
-
     if (/^\d+$/.test(event.target.value) === false) {
       return formDispatch({
         type: "VALIDATION_ERROR",
@@ -57,8 +55,6 @@ const PhoneForm = () => {
   };
 
   const validatePhone = () => (formState?.formData?.phone ?? "")?.length > 0;
-
-  console.log({ phone });
 
   return (
     <div className="form-container">

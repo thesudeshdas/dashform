@@ -45,6 +45,7 @@ const LastNameForm = () => {
 
       <div className="form-content">
         <TextInput
+          defaultValue={formState?.formData?.lastName}
           onChange={handleChange}
           placeholder="Type your answer here..."
         />

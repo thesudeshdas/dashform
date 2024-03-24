@@ -18,6 +18,7 @@ const FistNameForm = () => {
         },
       });
     }
+
     return formDispatch({ type: "GO_NEXT_QUESTION", payload: {} });
   };
 
@@ -42,6 +43,7 @@ const FistNameForm = () => {
 
       <div className="form-content">
         <TextInput
+          defaultValue={formState?.formData?.firstName}
           onChange={handleFirstNameChange}
           placeholder="Type your answer here..."
         />

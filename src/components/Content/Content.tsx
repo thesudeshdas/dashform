@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   EmailForm,
   FistNameForm,
@@ -11,6 +12,7 @@ import {
 } from "..";
 import useFormContext from "../../contexts/FormContext/formContext.hook";
 import "./Content.css";
+import { saveInLocal } from "../../utils/saveInLocal";
 
 const Content = () => {
   const { formState } = useFormContext();
@@ -49,7 +51,9 @@ const Content = () => {
     }
   };
 
-  console.log({ formState });
+  useEffect(() => {
+    saveInLocal(formState.formData);
+  }, [formState?.formData]);
 
   return (
     <main className="content-wrapper">

@@ -11,6 +11,8 @@ type IListInputProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setSelection: Dispatch<SetStateAction<any>>;
   options: string[];
+  defaultValue?: string[];
+  onSelection?: () => void;
 };
 
 const ListInput = ({
@@ -18,10 +20,12 @@ const ListInput = ({
   maxSelections,
   multiSelection = false,
   options,
+  defaultValue,
+  onSelection,
 }: IListInputProps) => {
   const { formDispatch } = useFormContext();
 
-  const [selected, setSelected] = useState<string[]>([]);
+  const [selected, setSelected] = useState<string[]>(defaultValue || []);
 
   const handleSelection = (selectedOption: string) => {
     formDispatch({
@@ -45,6 +49,16 @@ const ListInput = ({
         return prevSelected;
       }
     });
+
+    if (onSelection) {
+      if (multiSelection && selected?.length === maxSelections) {
+        onSelection();
+      }
+
+      if (selected[0] !== selectedOption) {
+        onSelection();
+      }
+    }
   };
 
   useEffect(() => {

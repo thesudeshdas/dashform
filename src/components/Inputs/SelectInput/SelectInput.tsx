@@ -19,16 +19,23 @@ import classNames from "classnames";
 type ISelectInputProps = {
   options: string[];
   setSelection: Dispatch<SetStateAction<string>>;
+  defaultValue: string;
+  onSelection?: () => void;
 };
 
-const SelectInput = ({ options, setSelection }: ISelectInputProps) => {
+const SelectInput = ({
+  options,
+  setSelection,
+  defaultValue,
+  onSelection,
+}: ISelectInputProps) => {
   const { formDispatch } = useFormContext();
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [search, setSearch] = useState<string>("");
   const [filteredList, setFilteredList] = useState<string[]>(options);
-  const [selected, setSelected] = useState<string>("");
+  const [selected, setSelected] = useState<string>(defaultValue || "");
   const [inputFocused, setInputFocused] = useState<boolean>(false);
 
   const toggleInputFocus = () => {
@@ -47,6 +54,10 @@ const SelectInput = ({ options, setSelection }: ISelectInputProps) => {
     });
     setSelected(selectedOption);
     setInputFocused(false);
+
+    if (onSelection) {
+      onSelection();
+    }
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -91,6 +102,7 @@ const SelectInput = ({ options, setSelection }: ISelectInputProps) => {
       <ul className={classNames(styles.select_dropdown)}>
         {filteredList?.map((industry) => (
           <li
+            key={industry}
             onMouseDown={() => {
               handleSelection(industry);
             }}

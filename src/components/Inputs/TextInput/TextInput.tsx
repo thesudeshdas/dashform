@@ -7,11 +7,17 @@ import styles from "./TextInput.module.css";
 type ITextInput = {
   onChange: ChangeEventHandler<HTMLInputElement>;
   placeholder?: string;
+  defaultValue?: string;
 };
 
-const TextInput = ({ onChange, placeholder = "" }: ITextInput) => {
+const TextInput = ({
+  onChange,
+  placeholder = "",
+  defaultValue,
+}: ITextInput) => {
   return (
     <input
+      defaultValue={defaultValue}
       type="text"
       placeholder={placeholder}
       onChange={onChange}

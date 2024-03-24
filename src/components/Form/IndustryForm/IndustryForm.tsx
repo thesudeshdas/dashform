@@ -15,7 +15,9 @@ import { useEffect, useState } from "react";
 const IndustryForm = () => {
   const { formState, formDispatch } = useFormContext();
 
-  const [selectedIndustry, setSelectedIndustry] = useState<string>("");
+  const [selectedIndustry, setSelectedIndustry] = useState<string>(
+    formState.formData.industry || ""
+  );
 
   const handleGoNext = () => {
     if (!validateIndustry()) {
@@ -33,20 +35,29 @@ const IndustryForm = () => {
   const validateIndustry = () =>
     (formState?.formData?.industry ?? "")?.length > 0;
 
+  const handleIndustrySelection = () => {
+    setTimeout(() => {
+      formDispatch({
+        type: "GO_NEXT_QUESTION",
+        payload: {},
+      });
+    }, 300);
+  };
+
   useEffect(() => {
     formDispatch({
       type: "FILL_INDUSTRY",
       payload: { formData: { industry: selectedIndustry } },
     });
 
-    if (selectedIndustry) {
-      setTimeout(() => {
-        formDispatch({
-          type: "GO_NEXT_QUESTION",
-          payload: {},
-        });
-      }, 300);
-    }
+    // if (selectedIndustry) {
+    //   setTimeout(() => {
+    //     formDispatch({
+    //       type: "GO_NEXT_QUESTION",
+    //       payload: {},
+    //     });
+    //   }, 300);
+    // }
   }, [formDispatch, selectedIndustry, setSelectedIndustry]);
 
   return (
@@ -59,7 +70,12 @@ const IndustryForm = () => {
       <div className="form-content">
         <Instruction message="We will personalize your learning experience accordingly" />
 
-        <SelectInput setSelection={setSelectedIndustry} options={industries} />
+        <SelectInput
+          onSelection={handleIndustrySelection}
+          defaultValue={selectedIndustry}
+          setSelection={setSelectedIndustry}
+          options={industries}
+        />
 
         {formState?.error ? (
           <ErrorMessage message={formState?.errorMessage} />
