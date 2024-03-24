@@ -92,6 +92,19 @@ const authReducer = (
             : 1,
       };
 
+    case "FILL_PHONE":
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          phone: payload?.formData?.phone,
+        },
+        dataProgress:
+          payload?.formData?.phone && payload?.formData?.phone?.length > 0
+            ? 2
+            : 1,
+      };
+
     case "VALIDATION_ERROR":
       return {
         ...state,

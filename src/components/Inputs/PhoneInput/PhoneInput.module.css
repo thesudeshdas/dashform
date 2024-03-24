@@ -1,0 +1,37 @@
+.phone_input {
+  background-color: inherit;
+  border: none;
+  box-shadow: rgba(255, 255, 255, 0.3) 0px 1px;
+  width: 100%;
+  transition: background-color 1e8s ease 0s, box-shadow 0.1s ease-out 0s;
+  font-size: 24px;
+  padding-bottom: 8px;
+  font-family: "Questrial", sans-serif;
+  margin-top: 32px;
+}
+
+.phone_input::-webkit-inner-spin-button,
+.phone_input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* Optional: You can also adjust the margin to make the input look better */
+}
+
+.phone_input::placeholder {
+  font-size: 24px;
+  color: var(--TEXT_PLACEHOLDER);
+}
+
+.phone_input:focus {
+  outline: none;
+  box-shadow: rgb(255, 255, 255) 0px 2px;
+}
+
+@media (min-width: 600px) {
+  .phone_input {
+    font-size: 30px;
+  }
+
+  .phone_input::placeholder {
+    font-size: 30px;
+  }
+}

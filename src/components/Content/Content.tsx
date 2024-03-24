@@ -4,6 +4,7 @@ import {
   GoalsForm,
   IndustryForm,
   LastNameForm,
+  PhoneForm,
   RoleForm,
 } from "..";
 import useFormContext from "../../contexts/FormContext/formContext.hook";
@@ -35,6 +36,9 @@ const Content = () => {
 
       case 6:
         return <EmailForm />;
+
+      case 7:
+        return <PhoneForm />;
 
       default:
         return <Introduction />;

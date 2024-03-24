@@ -11,8 +11,10 @@ import IndustryForm from "./Form/IndustryForm/IndustryForm";
 import RoleForm from "./Form/RoleForm/RoleForm";
 import GoalsForm from "./Form/GoalsForm/GoalsForm";
 import EmailForm from "./Form/EmailForm/EmailForm";
+import PhoneForm from "./Form/PhoneForm/PhoneForm";
 
 import ListInput from "./Inputs/ListInput/ListInput";
+import PhoneInput from "./Inputs/PhoneInput/PhoneInput";
 import SelectInput from "./Inputs/SelectInput/SelectInput";
 import TextInput from "./Inputs/TextInput/TextInput";
 
@@ -29,7 +31,9 @@ export {
   RoleForm,
   GoalsForm,
   EmailForm,
+  PhoneForm,
   ListInput,
+  PhoneInput,
   SelectInput,
   TextInput,
 };
