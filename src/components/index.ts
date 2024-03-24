@@ -18,6 +18,8 @@ import PhoneInput from "./Inputs/PhoneInput/PhoneInput";
 import SelectInput from "./Inputs/SelectInput/SelectInput";
 import TextInput from "./Inputs/TextInput/TextInput";
 
+import FormCompletion from "./FormCompletion/FormCompletion";
+
 export {
   Button,
   Content,
@@ -36,4 +38,5 @@ export {
   PhoneInput,
   SelectInput,
   TextInput,
+  FormCompletion,
 };

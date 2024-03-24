@@ -1,0 +1,28 @@
+.completion_container {
+  max-width: 720px;
+  padding: 0 40px;
+}
+
+.completion_heading {
+  color: var(--TEXT_PRIMARY);
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.completion_heading:nth-last-of-type(1),
+.completion_container img {
+  margin-bottom: 24px;
+}
+
+@media (min-width: 600px) {
+  .completion_heading {
+    color: var(--TEXT_PRIMARY);
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .completion_heading:nth-last-of-type(1),
+  .completion_container img {
+    margin-bottom: 32px;
+  }
+}

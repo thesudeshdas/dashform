@@ -6,7 +6,7 @@ import {
 import authReducer from "./formContext.reducer";
 
 const initialFormContextState: IFormContextState = {
-  activeQuestion: 7,
+  activeQuestion: 0,
   dataProgress: 0,
   totalQuestions: 8,
   formData: {

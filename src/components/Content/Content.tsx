@@ -1,6 +1,7 @@
 import {
   EmailForm,
   FistNameForm,
+  FormCompletion,
   GoalsForm,
   IndustryForm,
   LastNameForm,
@@ -39,6 +40,9 @@ const Content = () => {
 
       case 7:
         return <PhoneForm />;
+
+      case 8:
+        return <FormCompletion />;
 
       default:
         return <Introduction />;
