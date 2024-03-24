@@ -1,5 +1,4 @@
 import { ChangeEvent, useEffect, useRef, useState } from "react";
-import "../Inputs.css";
 import { industries } from "../../../data/industries.data";
 import {
   LucideChevronDown,
@@ -7,6 +6,8 @@ import {
   LucideX,
 } from "../../../assets/icons";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
+import styles from "./SelectInput.module.css";
+import classNames from "classnames";
 
 // declare props types
 const SelectInput = () => {
@@ -67,7 +68,7 @@ const SelectInput = () => {
   }, [formDispatch, selected]);
 
   return (
-    <div className="select-container">
+    <div className={classNames(styles.select_container)}>
       <input
         ref={inputRef}
         type="text"
@@ -76,9 +77,10 @@ const SelectInput = () => {
         onFocus={() => setInputFocused(true)}
         onBlur={() => setInputFocused(false)}
         value={selected || search}
+        className={classNames(styles.select_input)}
       />
 
-      <ul className="select-dropdown">
+      <ul className={classNames(styles.select_dropdown)}>
         {filteredList?.map((industry) => (
           <li
             onMouseDown={() => {
@@ -92,21 +94,21 @@ const SelectInput = () => {
 
       {selected || search ? (
         <button
-          className="btn btn-ghost select-button-icon"
+          className={classNames("btn", "btn-ghost", styles.select_button_icon)}
           onClick={handleClearSelection}
         >
           <LucideX />
         </button>
       ) : inputFocused ? (
         <button
-          className="btn btn-ghost select-button-icon"
+          className={classNames("btn", "btn-ghost", styles.select_button_icon)}
           onClick={toggleInputFocus}
         >
           <LucideChevronUp />
         </button>
       ) : (
         <button
-          className="btn btn-ghost select-button-icon"
+          className={classNames("btn", "btn-ghost", styles.select_button_icon)}
           onClick={toggleInputFocus}
         >
           <LucideChevronDown />

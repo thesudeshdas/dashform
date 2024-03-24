@@ -1,5 +1,7 @@
 import { ChangeEventHandler } from "react";
-import "../Inputs.css";
+import classNames from "classnames";
+
+import styles from "./TextInput.module.css";
 
 // declare props types
 type ITextInput = {
@@ -8,13 +10,12 @@ type ITextInput = {
 
 const TextInput = ({ onChange }: ITextInput) => {
   return (
-    <label>
-      <input
-        type="text"
-        placeholder="Type your answer here..."
-        onChange={onChange}
-      />
-    </label>
+    <input
+      type="text"
+      placeholder="Type your answer here..."
+      onChange={onChange}
+      className={classNames(styles.text_input)}
+    />
   );
 };
 
