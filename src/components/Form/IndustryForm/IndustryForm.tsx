@@ -9,9 +9,13 @@ import { LucideCheck } from "../../../assets/icons";
 
 import "../Form.css";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
+import { industries } from "../../../data/industries.data";
+import { useEffect, useState } from "react";
 
 const IndustryForm = () => {
   const { formState, formDispatch } = useFormContext();
+
+  const [selectedIndustry, setSelectedIndustry] = useState<string>("");
 
   const handleGoNext = () => {
     if (!validateIndustry()) {
@@ -29,6 +33,22 @@ const IndustryForm = () => {
   const validateIndustry = () =>
     (formState?.formData?.industry ?? "")?.length > 0;
 
+  useEffect(() => {
+    formDispatch({
+      type: "FILL_INDUSTRY",
+      payload: { formData: { industry: selectedIndustry } },
+    });
+
+    if (selectedIndustry) {
+      setTimeout(() => {
+        formDispatch({
+          type: "GO_NEXT_QUESTION",
+          payload: {},
+        });
+      }, 300);
+    }
+  }, [formDispatch, selectedIndustry, setSelectedIndustry]);
+
   return (
     <div className="form-container">
       <Question
@@ -39,7 +59,7 @@ const IndustryForm = () => {
       <div className="form-content">
         <Instruction message="We will personalize your learning experience accordingly" />
 
-        <SelectInput />
+        <SelectInput setSelection={setSelectedIndustry} options={industries} />
 
         {formState?.error ? (
           <ErrorMessage message={formState?.errorMessage} />

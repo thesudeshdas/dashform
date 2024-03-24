@@ -55,7 +55,7 @@
   max-height: 43vh;
 }
 
-.select_dropdown li {
+.select_dropdown_item {
   border-radius: 4px;
   background-color: rgb(26, 26, 26);
   box-shadow: rgba(255, 255, 255, 0.6) 0px 0px 0px 1px inset;
@@ -68,7 +68,12 @@
   font-size: 16px;
 }
 
-.select_dropdown li:hover {
+.select_dropdown_item_selected {
+  box-shadow: rgba(255, 255, 255, 0.8) 0px 0px 0px 2px inset;
+  animation: twinkle 0.25s ease 2 normal running;
+}
+
+.select_dropdown_item:hover {
   background-color: rgb(77, 77, 77);
 }
 
@@ -83,5 +88,21 @@
 
   .select_dropdown li {
     font-size: 20px;
+  }
+}
+
+@keyframes twinkle {
+  from {
+    box-shadow: rgba(255, 255, 255, 0.6) 0px 0px 0px 1px inset;
+    background-color: var(--BACKGROUND_PRIMARY);
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  to {
+    box-shadow: rgba(255, 255, 255, 0.8) 0px 0px 0px 2px inset;
+    background-color: rgb(26, 26, 26);
   }
 }

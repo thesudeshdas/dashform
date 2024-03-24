@@ -1,5 +1,11 @@
-import { ChangeEvent, useEffect, useRef, useState } from "react";
-import { industries } from "../../../data/industries.data";
+import {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import {
   LucideChevronDown,
   LucideChevronUp,
@@ -10,13 +16,18 @@ import styles from "./SelectInput.module.css";
 import classNames from "classnames";
 
 // declare props types
-const SelectInput = () => {
+type ISelectInputProps = {
+  options: string[];
+  setSelection: Dispatch<SetStateAction<string>>;
+};
+
+const SelectInput = ({ options, setSelection }: ISelectInputProps) => {
   const { formDispatch } = useFormContext();
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [search, setSearch] = useState<string>("");
-  const [filteredList, setFilteredList] = useState<string[]>(industries);
+  const [filteredList, setFilteredList] = useState<string[]>(options);
   const [selected, setSelected] = useState<string>("");
   const [inputFocused, setInputFocused] = useState<boolean>(false);
 
@@ -34,8 +45,8 @@ const SelectInput = () => {
       type: "CLEAR_ERRORS",
       payload: {},
     });
-    setInputFocused(false);
     setSelected(selectedOption);
+    setInputFocused(false);
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -51,21 +62,18 @@ const SelectInput = () => {
   useEffect(() => {
     if (search.trim().length > 0) {
       setFilteredList(() =>
-        industries.filter((item) =>
+        options.filter((item) =>
           item.toLowerCase().includes(search.toLowerCase())
         )
       );
     } else {
-      setFilteredList(industries);
+      setFilteredList(options);
     }
-  }, [search]);
+  }, [options, search]);
 
   useEffect(() => {
-    formDispatch({
-      type: "FILL_INDUSTRY",
-      payload: { formData: { industry: selected } },
-    });
-  }, [formDispatch, selected]);
+    setSelection(selected);
+  }, [selected, setSelection]);
 
   return (
     <div className={classNames(styles.select_container)}>
@@ -86,6 +94,9 @@ const SelectInput = () => {
             onMouseDown={() => {
               handleSelection(industry);
             }}
+            className={classNames(styles.select_dropdown_item, {
+              [styles.select_dropdown_item_selected]: selected === industry,
+            })}
           >
             {industry}
           </li>

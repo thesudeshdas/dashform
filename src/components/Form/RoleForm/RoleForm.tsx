@@ -16,6 +16,15 @@ const RoleForm = () => {
       type: "FILL_ROLE",
       payload: { formData: { role: selectedRole } },
     });
+
+    if (selectedRole) {
+      setTimeout(() => {
+        formDispatch({
+          type: "GO_NEXT_QUESTION",
+          payload: {},
+        });
+      }, 300);
+    }
   }, [formDispatch, selectedRole]);
 
   return (
