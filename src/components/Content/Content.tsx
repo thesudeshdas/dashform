@@ -1,4 +1,5 @@
 import {
+  EmailForm,
   FistNameForm,
   GoalsForm,
   IndustryForm,
@@ -32,10 +33,15 @@ const Content = () => {
       case 5:
         return <GoalsForm />;
 
+      case 6:
+        return <EmailForm />;
+
       default:
         return <Introduction />;
     }
   };
+
+  console.log({ formState });
 
   return (
     <main className="content-wrapper">

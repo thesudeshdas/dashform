@@ -79,6 +79,19 @@ const authReducer = (
             : 4,
       };
 
+    case "FILL_EMAIL":
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          email: payload?.formData?.email,
+        },
+        dataProgress:
+          payload?.formData?.email && payload?.formData?.email?.length > 0
+            ? 2
+            : 1,
+      };
+
     case "VALIDATION_ERROR":
       return {
         ...state,

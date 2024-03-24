@@ -41,7 +41,10 @@ const FistNameForm = () => {
       <Question question="What's your first name?*" questionNumber={1} />
 
       <div className="form-content">
-        <TextInput onChange={handleFirstNameChange} />
+        <TextInput
+          onChange={handleFirstNameChange}
+          placeholder="Type your answer here..."
+        />
 
         {formState?.error ? (
           <ErrorMessage message={formState?.errorMessage} />

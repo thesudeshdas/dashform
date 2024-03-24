@@ -44,7 +44,10 @@ const LastNameForm = () => {
       />
 
       <div className="form-content">
-        <TextInput onChange={handleChange} />
+        <TextInput
+          onChange={handleChange}
+          placeholder="Type your answer here..."
+        />
 
         {formState?.error ? (
           <ErrorMessage message={formState?.errorMessage} />

@@ -1,8 +1,8 @@
-import { Button, ErrorMessage, Question } from "../..";
+import { Button, ErrorMessage, ListInput, Question } from "../..";
 
 import "../Form.css";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
-import ListInput from "../../Inputs/ListInput/ListInput";
+
 import { useEffect, useState } from "react";
 import { founderGoals, nonFounderGoals } from "../../../data/goals.data";
 import { LucideCheck } from "../../../assets/icons";
