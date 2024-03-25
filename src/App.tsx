@@ -1,6 +1,7 @@
-import { Content, ProgressBar } from "./components";
-import "./App.css";
 import useFormContext from "./contexts/FormContext/formContext.hook";
+import { Content, ProgressBar } from "./components";
+
+import "./App.css";
 
 function App() {
   const { formState } = useFormContext();

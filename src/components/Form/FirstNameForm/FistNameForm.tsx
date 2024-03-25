@@ -1,11 +1,12 @@
 import { ChangeEvent } from "react";
-import { Button, ErrorMessage, Question, TextInput } from "../..";
+
 import { LucideCheck } from "../../../assets/icons";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
-
-import "../Form.css";
 import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
 import checkStringExistence from "../../../utils/checkStringExistence";
+import { Button, ErrorMessage, Question, TextInput } from "../..";
+
+import "../Form.css";
 
 const FistNameForm = () => {
   const { formState, formDispatch } = useFormContext();

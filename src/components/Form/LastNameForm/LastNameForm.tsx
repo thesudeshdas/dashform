@@ -1,11 +1,12 @@
 import { ChangeEvent } from "react";
-import { Button, ErrorMessage, Question, TextInput } from "../..";
-import { LucideCheck } from "../../../assets/icons";
 
-import "../Form.css";
+import { LucideCheck } from "../../../assets/icons";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
 import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
 import checkStringExistence from "../../../utils/checkStringExistence";
+import { Button, ErrorMessage, Question, TextInput } from "../..";
+
+import "../Form.css";
 
 const LastNameForm = () => {
   const { formState, formDispatch } = useFormContext();

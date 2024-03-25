@@ -1,8 +1,10 @@
-import { ReactNode, createContext, useReducer } from "react";
+import { createContext, ReactNode, useReducer } from "react";
+
 import {
   IFormContext,
   IFormContextState,
 } from "../../types/formContext/formContext.types";
+
 import authReducer from "./formContext.reducer";
 
 const localFormData = JSON.parse(localStorage.getItem("formData") || "{}");

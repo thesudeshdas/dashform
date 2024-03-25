@@ -1,13 +1,13 @@
 import { ChangeEvent, useState } from "react";
+import axios from "axios";
+
+import { phoneRegex } from "../../../constants/formValidation.constants";
+import useFormContext from "../../../contexts/FormContext/formContext.hook";
+import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
+import checkStringExistence from "../../../utils/checkStringExistence";
 import { Button, ErrorMessage, Instruction, PhoneInput, Question } from "../..";
 
 import "../Form.css";
-import useFormContext from "../../../contexts/FormContext/formContext.hook";
-
-import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
-import { phoneRegex } from "../../../constants/formValidation.constants";
-import checkStringExistence from "../../../utils/checkStringExistence";
-import axios from "axios";
 
 const PhoneForm = () => {
   const { formState, formDispatch } = useFormContext();

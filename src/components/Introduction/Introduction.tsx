@@ -1,6 +1,7 @@
-import { Button, SplashScreen } from "..";
 import useFormContext from "../../contexts/FormContext/formContext.hook";
 import { useKeyboardNavigation, useScrollNavigation } from "../../hooks";
+import { Button, SplashScreen } from "..";
+
 import "./Introduction.css";
 
 const Introduction = () => {

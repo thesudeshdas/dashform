@@ -1,4 +1,7 @@
 import { useEffect } from "react";
+
+import useFormContext from "../../contexts/FormContext/formContext.hook";
+import { saveInLocal } from "../../utils/saveInLocal";
 import {
   EmailForm,
   FistNameForm,
@@ -10,9 +13,8 @@ import {
   PhoneForm,
   RoleForm,
 } from "..";
-import useFormContext from "../../contexts/FormContext/formContext.hook";
+
 import "./Content.css";
-import { saveInLocal } from "../../utils/saveInLocal";
 
 const Content = () => {
   const { formState } = useFormContext();

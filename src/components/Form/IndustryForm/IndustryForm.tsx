@@ -1,3 +1,10 @@
+import { useEffect, useState } from "react";
+
+import { LucideCheck } from "../../../assets/icons";
+import useFormContext from "../../../contexts/FormContext/formContext.hook";
+import { industries } from "../../../data/industries.data";
+import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
+import checkStringExistence from "../../../utils/checkStringExistence";
 import {
   Button,
   ErrorMessage,
@@ -5,14 +12,8 @@ import {
   Question,
   SelectInput,
 } from "../..";
-import { LucideCheck } from "../../../assets/icons";
 
 import "../Form.css";
-import useFormContext from "../../../contexts/FormContext/formContext.hook";
-import { industries } from "../../../data/industries.data";
-import { useEffect, useState } from "react";
-import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
-import checkStringExistence from "../../../utils/checkStringExistence";
 
 const IndustryForm = () => {
   const { formState, formDispatch } = useFormContext();

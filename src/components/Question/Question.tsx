@@ -1,4 +1,5 @@
 import { LucideArrowRight } from "../../assets/icons";
+
 import "./Question.css";
 
 // declare props types

@@ -1,13 +1,13 @@
 import { ChangeEvent } from "react";
-import { Button, ErrorMessage, Instruction, Question, TextInput } from "../..";
+
 import { LucideCheck } from "../../../assets/icons";
-
-import "../Form.css";
+import { emailRegex } from "../../../constants/formValidation.constants";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
-
 import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
 import checkStringExistence from "../../../utils/checkStringExistence";
-import { emailRegex } from "../../../constants/formValidation.constants";
+import { Button, ErrorMessage, Instruction, Question, TextInput } from "../..";
+
+import "../Form.css";
 
 const EmailForm = () => {
   const { formState, formDispatch } = useFormContext();

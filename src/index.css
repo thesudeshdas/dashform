@@ -6,8 +6,8 @@
   font-weight: 400;
 
   color-scheme: dark;
-  color: #ffffff;
-  background-color: #000101;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 1, 1);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,6 +23,6 @@
   --TEXT_PLACEHOLDER: rgb(77, 77, 77);
   --TEXT_ERROR: rgb(175, 4, 4);
 
-  --BACKGROUND_PRIMARY: #000101;
+  --BACKGROUND_PRIMARY: rgb(0, 1, 1);
   --BACKGROUND_ERROR: rgb(247, 230, 230);
 }

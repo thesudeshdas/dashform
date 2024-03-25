@@ -1,12 +1,13 @@
+import { useEffect, useState } from "react";
+
+import { LucideCheck } from "../../../assets/icons";
+import useFormContext from "../../../contexts/FormContext/formContext.hook";
+import { roles } from "../../../data/roles.data";
+import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
+import checkStringExistence from "../../../utils/checkStringExistence";
 import { Button, ErrorMessage, Instruction, ListInput, Question } from "../..";
 
 import "../Form.css";
-import useFormContext from "../../../contexts/FormContext/formContext.hook";
-import { useEffect, useState } from "react";
-import { roles } from "../../../data/roles.data";
-import { LucideCheck } from "../../../assets/icons";
-import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
-import checkStringExistence from "../../../utils/checkStringExistence";
 
 const RoleForm = () => {
   const { formState, formDispatch } = useFormContext();

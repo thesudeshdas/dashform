@@ -6,14 +6,16 @@ import {
   useRef,
   useState,
 } from "react";
+import classNames from "classnames";
+
 import {
   LucideChevronDown,
   LucideChevronUp,
   LucideX,
 } from "../../../assets/icons";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
+
 import styles from "./SelectInput.module.css";
-import classNames from "classnames";
 
 // declare props types
 type ISelectInputProps = {

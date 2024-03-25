@@ -1,5 +1,7 @@
 import classNames from "classnames";
+
 import { Button } from "..";
+
 import styles from "./FormCompletion.module.css";
 
 const FormCompletion = () => {

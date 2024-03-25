@@ -1,8 +1,10 @@
-import styles from "./ListInput.module.css";
-import classNames from "classnames";
-import { LucideCheck } from "../../../assets/icons";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import classNames from "classnames";
+
+import { LucideCheck } from "../../../assets/icons";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
+
+import styles from "./ListInput.module.css";
 
 // declare props types
 type IListInputProps = {

@@ -1,4 +1,5 @@
 import { BxError } from "../../assets/icons";
+
 import "./ErrorMessage.css";
 
 // declare props types

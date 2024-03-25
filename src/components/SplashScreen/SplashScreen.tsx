@@ -1,8 +1,9 @@
+import { useEffect } from "react";
 import classNames from "classnames";
 
-import styles from "./SplashScreen.module.css";
 import useFormContext from "../../contexts/FormContext/formContext.hook";
-import { useEffect } from "react";
+
+import styles from "./SplashScreen.module.css";
 
 const SplashScreen = () => {
   const { formDispatch } = useFormContext();

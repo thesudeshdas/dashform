@@ -1,13 +1,13 @@
+import { useEffect, useState } from "react";
+
+import { LucideCheck } from "../../../assets/icons";
+import useFormContext from "../../../contexts/FormContext/formContext.hook";
+import { founderGoals, nonFounderGoals } from "../../../data/goals.data";
+import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
+import checkArrayLength from "../../../utils/checkArrayLength";
 import { Button, ErrorMessage, ListInput, Question } from "../..";
 
 import "../Form.css";
-import useFormContext from "../../../contexts/FormContext/formContext.hook";
-
-import { useEffect, useState } from "react";
-import { founderGoals, nonFounderGoals } from "../../../data/goals.data";
-import { LucideCheck } from "../../../assets/icons";
-import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
-import checkArrayLength from "../../../utils/checkArrayLength";
 
 const GoalsForm = () => {
   const { formState, formDispatch } = useFormContext();
