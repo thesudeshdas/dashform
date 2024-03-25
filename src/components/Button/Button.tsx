@@ -6,15 +6,24 @@ type IButtonProps = {
   label: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   icon?: ReactNode;
+  keyboardShortcut?: string;
 };
 
-const Button = ({ onClick, label, icon }: IButtonProps) => {
+const Button = ({ onClick, label, icon, keyboardShortcut }: IButtonProps) => {
   return (
-    <button className="btn" onClick={onClick}>
-      {label}
+    <div className="btn-container">
+      <button className="btn" onClick={onClick}>
+        {label}
 
-      {icon}
-    </button>
+        {icon}
+      </button>
+
+      {keyboardShortcut && (
+        <label>
+          press <span>{keyboardShortcut}</span>
+        </label>
+      )}
+    </div>
   );
 };
 

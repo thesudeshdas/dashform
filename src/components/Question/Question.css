@@ -3,6 +3,7 @@
   grid-template-columns: 10px 16px 1fr;
   position: relative;
   right: 32px;
+  animation: slideInd 1s ease forwards;
 }
 
 .question-number {
@@ -69,5 +70,15 @@
   .instruction {
     font-size: 20px;
     line-height: 28px;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100px);
+  }
+
+  to {
+    transform: translateX(0);
   }
 }

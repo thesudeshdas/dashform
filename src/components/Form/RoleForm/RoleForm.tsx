@@ -67,7 +67,12 @@ const RoleForm = () => {
         {formState?.error ? (
           <ErrorMessage message={formState?.errorMessage} />
         ) : (formState.formData.role ?? "").length > 0 ? (
-          <Button label="OK" icon={<LucideCheck />} onClick={handleGoNext} />
+          <Button
+            label="OK"
+            icon={<LucideCheck />}
+            onClick={handleGoNext}
+            keyboardShortcut="Enter ↵"
+          />
         ) : null}
       </div>
     </div>

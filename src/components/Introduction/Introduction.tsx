@@ -32,7 +32,11 @@ const Introduction = () => {
         <li>15 hours/week for the last 3 weeks</li>
       </ul>
 
-      <Button label="I agree" onClick={handleStart} />
+      <Button
+        label="I agree"
+        onClick={handleStart}
+        keyboardShortcut="Enter ↵"
+      />
     </div>
   );
 };

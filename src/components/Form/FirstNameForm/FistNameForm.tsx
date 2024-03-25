@@ -57,7 +57,12 @@ const FistNameForm = () => {
         {formState?.error ? (
           <ErrorMessage message={formState?.errorMessage} />
         ) : (
-          <Button label="OK" icon={<LucideCheck />} onClick={handleGoNext} />
+          <Button
+            label="OK"
+            icon={<LucideCheck />}
+            onClick={handleGoNext}
+            keyboardShortcut="Enter ↵"
+          />
         )}
       </div>
     </div>

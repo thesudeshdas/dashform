@@ -79,7 +79,11 @@ const PhoneForm = () => {
         {formState?.error ? (
           <ErrorMessage message={formState?.errorMessage} />
         ) : (
-          <Button label="Submit" onClick={handleGoNext} />
+          <Button
+            label="Submit"
+            onClick={handleGoNext}
+            keyboardShortcut="Ctrl + Enter ↵"
+          />
         )}
       </div>
     </div>
