@@ -1,6 +1,6 @@
 import { Button, SplashScreen } from "..";
 import useFormContext from "../../contexts/FormContext/formContext.hook";
-import useKeyboardNavigation from "../../hooks/useKeyboardNavigation/useKeyboardNavigation.hook";
+import { useKeyboardNavigation, useScrollNavigation } from "../../hooks";
 import "./Introduction.css";
 
 const Introduction = () => {
@@ -13,6 +13,10 @@ const Introduction = () => {
   useKeyboardNavigation({
     functionToBeExecuted: handleStart,
     keyToListen: "Enter",
+  });
+
+  useScrollNavigation({
+    wheelDownFunction: handleStart,
   });
 
   return (

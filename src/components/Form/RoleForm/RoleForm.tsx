@@ -5,7 +5,7 @@ import useFormContext from "../../../contexts/FormContext/formContext.hook";
 import { useEffect, useState } from "react";
 import { roles } from "../../../data/roles.data";
 import { LucideCheck } from "../../../assets/icons";
-import useKeyboardNavigation from "../../../hooks/useKeyboardNavigation/useKeyboardNavigation.hook";
+import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
 
 const RoleForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -13,6 +13,8 @@ const RoleForm = () => {
   const [selectedRole, setSelectedRole] = useState<string>(
     formState.formData.role || ""
   );
+
+  const handleGoBack = () => formDispatch({ type: "GO_PREVIOUS_QUESTION" });
 
   const handleGoNext = () => {
     if (!validateRole()) {
@@ -47,6 +49,11 @@ const RoleForm = () => {
   useKeyboardNavigation({
     functionToBeExecuted: handleGoNext,
     keyToListen: "Enter",
+  });
+
+  useScrollNavigation({
+    wheelDownFunction: handleGoNext,
+    wheelUpFunction: handleGoBack,
   });
 
   return (

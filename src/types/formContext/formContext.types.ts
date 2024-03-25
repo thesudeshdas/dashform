@@ -29,6 +29,11 @@ export interface IGoNextQuestionAction {
   payload?: null;
 }
 
+export interface IGoPreviousQuestionAction {
+  type: "GO_PREVIOUS_QUESTION";
+  payload?: null;
+}
+
 export interface IValidationErrorAction {
   type: "VALIDATION_ERROR";
   payload: {
@@ -65,6 +70,7 @@ export interface IStringArrayFieldAction {
 
 export type IFormReducerActions =
   | IGoNextQuestionAction
+  | IGoPreviousQuestionAction
   | IValidationErrorAction
   | IClearErrorsAction
   | IResetFormAction

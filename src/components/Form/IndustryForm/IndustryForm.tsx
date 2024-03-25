@@ -11,7 +11,7 @@ import "../Form.css";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
 import { industries } from "../../../data/industries.data";
 import { useEffect, useState } from "react";
-import useKeyboardNavigation from "../../../hooks/useKeyboardNavigation/useKeyboardNavigation.hook";
+import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
 
 const IndustryForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -19,6 +19,8 @@ const IndustryForm = () => {
   const [selectedIndustry, setSelectedIndustry] = useState<string>(
     formState.formData.industry || ""
   );
+
+  const handleGoBack = () => formDispatch({ type: "GO_PREVIOUS_QUESTION" });
 
   const handleGoNext = () => {
     if (!validateIndustry()) {
@@ -54,6 +56,11 @@ const IndustryForm = () => {
   useKeyboardNavigation({
     functionToBeExecuted: handleGoNext,
     keyToListen: "Enter",
+  });
+
+  useScrollNavigation({
+    wheelDownFunction: handleGoNext,
+    wheelUpFunction: handleGoBack,
   });
 
   return (

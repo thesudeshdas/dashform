@@ -11,6 +11,9 @@ const authReducer = (
     case "GO_NEXT_QUESTION":
       return { ...state, activeQuestion: state.activeQuestion + 1 };
 
+    case "GO_PREVIOUS_QUESTION":
+      return { ...state, activeQuestion: state.activeQuestion - 1 };
+
     case "VALIDATION_ERROR":
       return {
         ...state,

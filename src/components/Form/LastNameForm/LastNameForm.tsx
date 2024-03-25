@@ -4,10 +4,12 @@ import { LucideCheck } from "../../../assets/icons";
 
 import "../Form.css";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
-import useKeyboardNavigation from "../../../hooks/useKeyboardNavigation/useKeyboardNavigation.hook";
+import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
 
 const LastNameForm = () => {
   const { formState, formDispatch } = useFormContext();
+
+  const handleGoBack = () => formDispatch({ type: "GO_PREVIOUS_QUESTION" });
 
   const handleGoNext = () => {
     if (!validateLastName()) {
@@ -39,6 +41,11 @@ const LastNameForm = () => {
   useKeyboardNavigation({
     functionToBeExecuted: handleGoNext,
     keyToListen: "Enter",
+  });
+
+  useScrollNavigation({
+    wheelDownFunction: handleGoNext,
+    wheelUpFunction: handleGoBack,
   });
 
   return (

@@ -6,7 +6,7 @@ import useFormContext from "../../../contexts/FormContext/formContext.hook";
 import { useEffect, useState } from "react";
 import { founderGoals, nonFounderGoals } from "../../../data/goals.data";
 import { LucideCheck } from "../../../assets/icons";
-import useKeyboardNavigation from "../../../hooks/useKeyboardNavigation/useKeyboardNavigation.hook";
+import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
 
 const GoalsForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -14,6 +14,8 @@ const GoalsForm = () => {
   const [selectedGoals, setSelectedGoals] = useState<string[]>(
     formState.formData.goals || []
   );
+
+  const handleGoBack = () => formDispatch({ type: "GO_PREVIOUS_QUESTION" });
 
   const handleGoNext = () => {
     if (!validateGoals()) {
@@ -43,6 +45,11 @@ const GoalsForm = () => {
   useKeyboardNavigation({
     functionToBeExecuted: handleGoNext,
     keyToListen: "Enter",
+  });
+
+  useScrollNavigation({
+    wheelDownFunction: handleGoNext,
+    wheelUpFunction: handleGoBack,
   });
 
   return (

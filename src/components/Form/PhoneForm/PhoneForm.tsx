@@ -3,12 +3,15 @@ import { Button, ErrorMessage, Instruction, PhoneInput, Question } from "../..";
 
 import "../Form.css";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
-import useKeyboardNavigation from "../../../hooks/useKeyboardNavigation/useKeyboardNavigation.hook";
+
+import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
 
 const PhoneForm = () => {
   const { formState, formDispatch } = useFormContext();
 
   const [phone, setPhone] = useState<string>(formState.formData.phone || "");
+
+  const handleGoBack = () => formDispatch({ type: "GO_PREVIOUS_QUESTION" });
 
   const handleGoNext = () => {
     if (formState?.formData?.phone?.length === 0) {
@@ -63,6 +66,11 @@ const PhoneForm = () => {
     functionToBeExecuted: handleGoNext,
     keyToListen: "Enter",
     useControl: true,
+  });
+
+  useScrollNavigation({
+    wheelDownFunction: handleGoNext,
+    wheelUpFunction: handleGoBack,
   });
 
   return (
