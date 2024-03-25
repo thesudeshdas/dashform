@@ -30,7 +30,7 @@ const IndustryForm = () => {
         },
       });
     }
-    return formDispatch({ type: "GO_NEXT_QUESTION", payload: {} });
+    return formDispatch({ type: "GO_NEXT_QUESTION" });
   };
 
   const validateIndustry = () =>
@@ -40,7 +40,6 @@ const IndustryForm = () => {
     setTimeout(() => {
       formDispatch({
         type: "GO_NEXT_QUESTION",
-        payload: {},
       });
     }, 300);
   };
@@ -48,7 +47,7 @@ const IndustryForm = () => {
   useEffect(() => {
     formDispatch({
       type: "FILL_INDUSTRY",
-      payload: { formData: { industry: selectedIndustry } },
+      payload: selectedIndustry,
     });
   }, [formDispatch, selectedIndustry, setSelectedIndustry]);
 

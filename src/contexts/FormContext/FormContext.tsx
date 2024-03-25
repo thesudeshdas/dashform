@@ -5,7 +5,7 @@ import {
 } from "../../types/formContext/formContext.types";
 import authReducer from "./formContext.reducer";
 
-const localFormData = JSON.parse(localStorage.getItem("formData") || "");
+const localFormData = JSON.parse(localStorage.getItem("formData") || "{}");
 
 const initialFormContextState: IFormContextState = {
   activeQuestion: 0,

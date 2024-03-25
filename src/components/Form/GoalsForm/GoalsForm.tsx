@@ -28,7 +28,7 @@ const GoalsForm = () => {
         },
       });
     }
-    return formDispatch({ type: "GO_NEXT_QUESTION", payload: {} });
+    return formDispatch({ type: "GO_NEXT_QUESTION" });
   };
 
   const validateGoals = () => (formState?.formData?.goals ?? [])?.length === 2;
@@ -36,7 +36,7 @@ const GoalsForm = () => {
   useEffect(() => {
     formDispatch({
       type: "FILL_GOALS",
-      payload: { formData: { goals: selectedGoals } },
+      payload: selectedGoals,
     });
   }, [formDispatch, selectedGoals]);
 

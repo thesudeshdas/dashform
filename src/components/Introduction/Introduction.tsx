@@ -7,7 +7,7 @@ const Introduction = () => {
   const { formDispatch } = useFormContext();
 
   const handleStart = () => {
-    formDispatch({ type: "GO_NEXT_QUESTION", payload: {} });
+    formDispatch({ type: "GO_NEXT_QUESTION" });
   };
 
   useKeyboardNavigation({

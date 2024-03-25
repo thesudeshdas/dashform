@@ -20,18 +20,17 @@ const FistNameForm = () => {
       });
     }
 
-    return formDispatch({ type: "GO_NEXT_QUESTION", payload: {} });
+    return formDispatch({ type: "GO_NEXT_QUESTION" });
   };
 
   const handleFirstNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     formDispatch({
       type: "CLEAR_ERRORS",
-      payload: {},
     });
 
     formDispatch({
       type: "FILL_FIRST_NAME",
-      payload: { formData: { firstName: event.target.value.trim() } },
+      payload: event.target.value.trim(),
     });
   };
 

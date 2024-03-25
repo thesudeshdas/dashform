@@ -5,26 +5,48 @@ import {
 
 const authReducer = (
   state: IFormContextState,
-  action: IFormReducerActions
+  { payload, type }: IFormReducerActions
 ): IFormContextState => {
-  const { payload, type }: IFormReducerActions = action;
-
   switch (type) {
     case "GO_NEXT_QUESTION":
       return { ...state, activeQuestion: state.activeQuestion + 1 };
+
+    case "VALIDATION_ERROR":
+      return {
+        ...state,
+        error: payload.error,
+        errorMessage: payload.errorMessage,
+      };
+
+    case "CLEAR_ERRORS":
+      return { ...state, error: false, errorMessage: "" };
+
+    case "RESET_FORM":
+      return {
+        activeQuestion: 8,
+        dataProgress: 7,
+        totalQuestions: 7,
+        formData: {
+          firstName: "",
+          lastName: "",
+          industry: "",
+          role: "",
+          goals: [],
+          email: "",
+          phone: "",
+        },
+        error: false,
+        errorMessage: "",
+      };
 
     case "FILL_FIRST_NAME":
       return {
         ...state,
         formData: {
           ...state.formData,
-          firstName: payload?.formData?.firstName,
+          firstName: payload,
         },
-        dataProgress:
-          payload?.formData?.firstName &&
-          payload?.formData?.firstName?.length > 0
-            ? 1
-            : 0,
+        dataProgress: payload.length > 0 ? 1 : 0,
       };
 
     case "FILL_LAST_NAME":
@@ -32,12 +54,9 @@ const authReducer = (
         ...state,
         formData: {
           ...state.formData,
-          lastName: payload?.formData?.lastName,
+          lastName: payload,
         },
-        dataProgress:
-          payload?.formData?.lastName && payload?.formData?.lastName?.length > 0
-            ? 2
-            : 1,
+        dataProgress: payload.length > 0 ? 2 : 1,
       };
 
     case "FILL_INDUSTRY":
@@ -45,12 +64,9 @@ const authReducer = (
         ...state,
         formData: {
           ...state.formData,
-          industry: payload?.formData?.industry,
+          industry: payload,
         },
-        dataProgress:
-          payload?.formData?.industry && payload?.formData?.industry?.length > 0
-            ? 3
-            : 2,
+        dataProgress: payload.length > 0 ? 3 : 2,
       };
 
     case "FILL_ROLE":
@@ -58,12 +74,9 @@ const authReducer = (
         ...state,
         formData: {
           ...state.formData,
-          role: payload?.formData?.role,
+          role: payload,
         },
-        dataProgress:
-          payload?.formData?.role && payload?.formData?.role?.length > 0
-            ? 4
-            : 3,
+        dataProgress: payload.length > 0 ? 4 : 3,
       };
 
     case "FILL_GOALS":
@@ -71,12 +84,9 @@ const authReducer = (
         ...state,
         formData: {
           ...state.formData,
-          goals: payload?.formData?.goals,
+          goals: payload,
         },
-        dataProgress:
-          payload?.formData?.goals && payload?.formData?.goals?.length > 0
-            ? 5
-            : 4,
+        dataProgress: payload.length > 0 ? 5 : 4,
       };
 
     case "FILL_EMAIL":
@@ -84,12 +94,9 @@ const authReducer = (
         ...state,
         formData: {
           ...state.formData,
-          email: payload?.formData?.email,
+          email: payload,
         },
-        dataProgress:
-          payload?.formData?.email && payload?.formData?.email?.length > 0
-            ? 6
-            : 5,
+        dataProgress: payload.length > 0 ? 6 : 5,
       };
 
     case "FILL_PHONE":
@@ -97,23 +104,10 @@ const authReducer = (
         ...state,
         formData: {
           ...state.formData,
-          phone: payload?.formData?.phone,
+          phone: payload,
         },
-        dataProgress:
-          payload?.formData?.phone && payload?.formData?.phone?.length > 0
-            ? 7
-            : 6,
+        dataProgress: payload.length > 0 ? 7 : 6,
       };
-
-    case "VALIDATION_ERROR":
-      return {
-        ...state,
-        error: payload?.error || true,
-        errorMessage: payload?.errorMessage || "Validation Error",
-      };
-
-    case "CLEAR_ERRORS":
-      return { ...state, error: false, errorMessage: "" };
 
     default:
       return state;

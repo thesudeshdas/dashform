@@ -50,7 +50,6 @@ const SelectInput = ({
   const handleSelection = (selectedOption: string) => {
     formDispatch({
       type: "CLEAR_ERRORS",
-      payload: {},
     });
     setSelected(selectedOption);
     setInputFocused(false);

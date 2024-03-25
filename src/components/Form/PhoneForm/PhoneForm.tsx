@@ -28,7 +28,10 @@ const PhoneForm = () => {
         },
       });
     }
-    return formDispatch({ type: "GO_NEXT_QUESTION", payload: {} });
+
+    formDispatch({ type: "GO_NEXT_QUESTION" });
+
+    return formDispatch({ type: "RESET_FORM" });
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -44,14 +47,13 @@ const PhoneForm = () => {
 
     formDispatch({
       type: "CLEAR_ERRORS",
-      payload: {},
     });
 
     setPhone(event.target.value);
 
     formDispatch({
       type: "FILL_PHONE",
-      payload: { formData: { phone: event.target.value.trim() } },
+      payload: event.target.value.trim(),
     });
   };
 

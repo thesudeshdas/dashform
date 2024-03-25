@@ -24,7 +24,7 @@ const RoleForm = () => {
         },
       });
     }
-    return formDispatch({ type: "GO_NEXT_QUESTION", payload: {} });
+    return formDispatch({ type: "GO_NEXT_QUESTION" });
   };
 
   const validateRole = () => (formState?.formData?.role ?? "")?.length > 0;
@@ -33,7 +33,6 @@ const RoleForm = () => {
     setTimeout(() => {
       formDispatch({
         type: "GO_NEXT_QUESTION",
-        payload: {},
       });
     }, 300);
   };
@@ -41,7 +40,7 @@ const RoleForm = () => {
   useEffect(() => {
     formDispatch({
       type: "FILL_ROLE",
-      payload: { formData: { role: selectedRole } },
+      payload: selectedRole,
     });
   }, [formDispatch, selectedRole]);
 

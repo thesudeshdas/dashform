@@ -24,18 +24,49 @@ export interface IFormContext {
   formDispatch: Dispatch<IFormReducerActions>;
 }
 
-export interface IFormReducerActions {
+export interface IGoNextQuestionAction {
+  type: "GO_NEXT_QUESTION";
+  payload?: null;
+}
+
+export interface IValidationErrorAction {
+  type: "VALIDATION_ERROR";
+  payload: {
+    error: boolean;
+    errorMessage: string;
+  };
+}
+
+export interface IClearErrorsAction {
+  type: "CLEAR_ERRORS";
+  payload?: null;
+}
+
+export interface IResetFormAction {
+  type: "RESET_FORM";
+  payload?: null;
+}
+
+export interface IStringFieldAction {
   type:
-    | "GO_NEXT_QUESTION"
-    | "INCREMENT_DATA_PROGRESS"
     | "FILL_FIRST_NAME"
     | "FILL_LAST_NAME"
     | "FILL_INDUSTRY"
     | "FILL_ROLE"
-    | "FILL_GOALS"
     | "FILL_EMAIL"
-    | "FILL_PHONE"
-    | "VALIDATION_ERROR"
-    | "CLEAR_ERRORS";
-  payload: Partial<IFormContextState>;
+    | "FILL_PHONE";
+  payload: string;
 }
+
+export interface IStringArrayFieldAction {
+  type: "FILL_GOALS";
+  payload: string[];
+}
+
+export type IFormReducerActions =
+  | IGoNextQuestionAction
+  | IValidationErrorAction
+  | IClearErrorsAction
+  | IResetFormAction
+  | IStringFieldAction
+  | IStringArrayFieldAction;

@@ -19,18 +19,17 @@ const LastNameForm = () => {
         },
       });
     }
-    return formDispatch({ type: "GO_NEXT_QUESTION", payload: {} });
+    return formDispatch({ type: "GO_NEXT_QUESTION" });
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     formDispatch({
       type: "CLEAR_ERRORS",
-      payload: {},
     });
 
     formDispatch({
       type: "FILL_LAST_NAME",
-      payload: { formData: { lastName: event.target.value.trim() } },
+      payload: event.target.value.trim(),
     });
   };
 

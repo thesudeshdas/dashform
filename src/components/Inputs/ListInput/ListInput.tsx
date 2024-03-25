@@ -30,7 +30,6 @@ const ListInput = ({
   const handleSelection = (selectedOption: string) => {
     formDispatch({
       type: "CLEAR_ERRORS",
-      payload: {},
     });
 
     setSelected((prevSelected) => {
