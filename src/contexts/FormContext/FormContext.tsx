@@ -22,6 +22,7 @@ const initialFormContextState: IFormContextState = {
   },
   error: false,
   errorMessage: "",
+  formLoaded: false,
 };
 
 export const FormContext = createContext<IFormContext>({

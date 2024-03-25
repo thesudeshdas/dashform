@@ -8,6 +8,12 @@ const authReducer = (
   { payload, type }: IFormReducerActions
 ): IFormContextState => {
   switch (type) {
+    case "LOAD_FORM":
+      return {
+        ...state,
+        formLoaded: true,
+      };
+
     case "GO_NEXT_QUESTION":
       return { ...state, activeQuestion: state.activeQuestion + 1 };
 
@@ -40,6 +46,7 @@ const authReducer = (
         },
         error: false,
         errorMessage: "",
+        formLoaded: true,
       };
 
     case "FILL_FIRST_NAME":

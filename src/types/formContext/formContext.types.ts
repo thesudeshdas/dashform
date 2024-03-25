@@ -15,6 +15,7 @@ export interface IFormContextState {
   dataProgress: number;
   activeQuestion: number;
   formData: Partial<IFormData>;
+  formLoaded: boolean;
   error: boolean;
   errorMessage: string;
 }
@@ -22,6 +23,11 @@ export interface IFormContextState {
 export interface IFormContext {
   formState: IFormContextState;
   formDispatch: Dispatch<IFormReducerActions>;
+}
+
+export interface ILoadFormAction {
+  type: "LOAD_FORM";
+  payload?: null;
 }
 
 export interface IGoNextQuestionAction {
@@ -69,6 +75,7 @@ export interface IStringArrayFieldAction {
 }
 
 export type IFormReducerActions =
+  | ILoadFormAction
   | IGoNextQuestionAction
   | IGoPreviousQuestionAction
   | IValidationErrorAction

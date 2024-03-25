@@ -4,7 +4,7 @@ import { useKeyboardNavigation, useScrollNavigation } from "../../hooks";
 import "./Introduction.css";
 
 const Introduction = () => {
-  const { formDispatch } = useFormContext();
+  const { formState, formDispatch } = useFormContext();
 
   const handleStart = () => {
     formDispatch({ type: "GO_NEXT_QUESTION" });
@@ -21,7 +21,7 @@ const Introduction = () => {
 
   return (
     <div className="intro-container">
-      <SplashScreen />
+      {!formState?.formLoaded && <SplashScreen />}
 
       <h2 className="intro-heading">Up-skilling requires time commitment</h2>
       <p className="intro-instruction">
