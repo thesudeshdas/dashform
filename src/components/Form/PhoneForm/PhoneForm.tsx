@@ -7,6 +7,7 @@ import useFormContext from "../../../contexts/FormContext/formContext.hook";
 import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
 import { phoneRegex } from "../../../constants/formValidation.constants";
 import checkStringExistence from "../../../utils/checkStringExistence";
+import axios from "axios";
 
 const PhoneForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -15,7 +16,7 @@ const PhoneForm = () => {
 
   const handleGoBack = () => formDispatch({ type: "GO_PREVIOUS_QUESTION" });
 
-  const handleGoNext = () => {
+  const handleGoNext = async () => {
     if (!checkStringExistence(formState.formData.phone ?? "")) {
       return formDispatch({
         type: "VALIDATION_ERROR",
@@ -33,6 +34,13 @@ const PhoneForm = () => {
         },
       });
     }
+
+    await axios.post("https://eo3oi83n1j77wgp.m.pipedream.net/", {
+      formBody: {
+        ...formState.formData,
+        goals: formState.formData.goals?.join(", "),
+      },
+    });
 
     formDispatch({ type: "GO_NEXT_QUESTION" });
 
