@@ -4,6 +4,7 @@ import { LucideCheck } from "../../../assets/icons";
 
 import "../Form.css";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
+import useKeyboardNavigation from "../../../hooks/useKeyboardNavigation/useKeyboardNavigation.hook";
 
 const EmailForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -48,6 +49,11 @@ const EmailForm = () => {
       .match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
+
+  useKeyboardNavigation({
+    functionToBeExecuted: handleGoNext,
+    keyToListen: "Enter",
+  });
 
   return (
     <div className="form-container">

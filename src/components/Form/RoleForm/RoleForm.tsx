@@ -5,6 +5,7 @@ import useFormContext from "../../../contexts/FormContext/formContext.hook";
 import { useEffect, useState } from "react";
 import { roles } from "../../../data/roles.data";
 import { LucideCheck } from "../../../assets/icons";
+import useKeyboardNavigation from "../../../hooks/useKeyboardNavigation/useKeyboardNavigation.hook";
 
 const RoleForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -43,6 +44,11 @@ const RoleForm = () => {
       payload: { formData: { role: selectedRole } },
     });
   }, [formDispatch, selectedRole]);
+
+  useKeyboardNavigation({
+    functionToBeExecuted: handleGoNext,
+    keyToListen: "Enter",
+  });
 
   return (
     <div className="form-container">

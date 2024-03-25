@@ -11,6 +11,7 @@ import "../Form.css";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
 import { industries } from "../../../data/industries.data";
 import { useEffect, useState } from "react";
+import useKeyboardNavigation from "../../../hooks/useKeyboardNavigation/useKeyboardNavigation.hook";
 
 const IndustryForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -49,16 +50,12 @@ const IndustryForm = () => {
       type: "FILL_INDUSTRY",
       payload: { formData: { industry: selectedIndustry } },
     });
-
-    // if (selectedIndustry) {
-    //   setTimeout(() => {
-    //     formDispatch({
-    //       type: "GO_NEXT_QUESTION",
-    //       payload: {},
-    //     });
-    //   }, 300);
-    // }
   }, [formDispatch, selectedIndustry, setSelectedIndustry]);
+
+  useKeyboardNavigation({
+    functionToBeExecuted: handleGoNext,
+    keyToListen: "Enter",
+  });
 
   return (
     <div className="form-container">

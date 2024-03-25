@@ -4,6 +4,7 @@ import { LucideCheck } from "../../../assets/icons";
 
 import "../Form.css";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
+import useKeyboardNavigation from "../../../hooks/useKeyboardNavigation/useKeyboardNavigation.hook";
 
 const LastNameForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -35,6 +36,11 @@ const LastNameForm = () => {
 
   const validateLastName = () =>
     (formState?.formData?.lastName ?? "")?.length > 0;
+
+  useKeyboardNavigation({
+    functionToBeExecuted: handleGoNext,
+    keyToListen: "Enter",
+  });
 
   return (
     <div className="form-container">

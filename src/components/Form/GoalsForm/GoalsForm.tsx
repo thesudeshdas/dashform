@@ -6,6 +6,7 @@ import useFormContext from "../../../contexts/FormContext/formContext.hook";
 import { useEffect, useState } from "react";
 import { founderGoals, nonFounderGoals } from "../../../data/goals.data";
 import { LucideCheck } from "../../../assets/icons";
+import useKeyboardNavigation from "../../../hooks/useKeyboardNavigation/useKeyboardNavigation.hook";
 
 const GoalsForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -38,6 +39,11 @@ const GoalsForm = () => {
       payload: { formData: { goals: selectedGoals } },
     });
   }, [formDispatch, selectedGoals]);
+
+  useKeyboardNavigation({
+    functionToBeExecuted: handleGoNext,
+    keyToListen: "Enter",
+  });
 
   return (
     <div className="form-container">

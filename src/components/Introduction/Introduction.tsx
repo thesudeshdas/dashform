@@ -1,5 +1,6 @@
 import { Button, SplashScreen } from "..";
 import useFormContext from "../../contexts/FormContext/formContext.hook";
+import useKeyboardNavigation from "../../hooks/useKeyboardNavigation/useKeyboardNavigation.hook";
 import "./Introduction.css";
 
 const Introduction = () => {
@@ -8,6 +9,11 @@ const Introduction = () => {
   const handleStart = () => {
     formDispatch({ type: "GO_NEXT_QUESTION", payload: {} });
   };
+
+  useKeyboardNavigation({
+    functionToBeExecuted: handleStart,
+    keyToListen: "Enter",
+  });
 
   return (
     <div className="intro-container">

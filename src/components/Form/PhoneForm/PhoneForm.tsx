@@ -3,6 +3,7 @@ import { Button, ErrorMessage, Instruction, PhoneInput, Question } from "../..";
 
 import "../Form.css";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
+import useKeyboardNavigation from "../../../hooks/useKeyboardNavigation/useKeyboardNavigation.hook";
 
 const PhoneForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -55,6 +56,12 @@ const PhoneForm = () => {
   };
 
   const validatePhone = () => (formState?.formData?.phone ?? "")?.length > 0;
+
+  useKeyboardNavigation({
+    functionToBeExecuted: handleGoNext,
+    keyToListen: "Enter",
+    useControl: true,
+  });
 
   return (
     <div className="form-container">
