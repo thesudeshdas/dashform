@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { founderGoals, nonFounderGoals } from "../../../data/goals.data";
 import { LucideCheck } from "../../../assets/icons";
 import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
+import checkArrayLength from "../../../utils/checkArrayLength";
 
 const GoalsForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -18,22 +19,19 @@ const GoalsForm = () => {
   const handleGoBack = () => formDispatch({ type: "GO_PREVIOUS_QUESTION" });
 
   const handleGoNext = () => {
-    if (!validateGoals()) {
+    if (!checkArrayLength(formState.formData.goals ?? [], 2)) {
       return formDispatch({
         type: "VALIDATION_ERROR",
         payload: {
           error: true,
-          errorMessage:
-            (formState?.formData?.goals ?? [])?.length === 0
-              ? "Oops! Please make a selection"
-              : "Please select more choices",
+          errorMessage: checkArrayLength(formState.formData.goals ?? [], 0)
+            ? "Oops! Please make a selection"
+            : "Please select more choices",
         },
       });
     }
     return formDispatch({ type: "GO_NEXT_QUESTION" });
   };
-
-  const validateGoals = () => (formState?.formData?.goals ?? [])?.length === 2;
 
   useEffect(() => {
     formDispatch({

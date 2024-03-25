@@ -6,6 +6,8 @@ import "../Form.css";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
 
 import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
+import checkStringExistence from "../../../utils/checkStringExistence";
+import { emailRegex } from "../../../constants/formValidation.constants";
 
 const EmailForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -13,7 +15,7 @@ const EmailForm = () => {
   const handleGoBack = () => formDispatch({ type: "GO_PREVIOUS_QUESTION" });
 
   const handleGoNext = () => {
-    if (formState?.formData?.email?.length === 0) {
+    if (!checkStringExistence(formState.formData.email ?? "")) {
       return formDispatch({
         type: "VALIDATION_ERROR",
         payload: {
@@ -45,12 +47,7 @@ const EmailForm = () => {
   };
 
   const validateEmail = () =>
-    (formState?.formData?.email ?? "")?.length > 0 &&
-    (formState?.formData?.email ?? "")
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      );
+    (formState?.formData?.email ?? "").toLowerCase().match(emailRegex);
 
   useKeyboardNavigation({
     functionToBeExecuted: handleGoNext,

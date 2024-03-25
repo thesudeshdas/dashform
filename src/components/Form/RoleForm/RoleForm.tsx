@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { roles } from "../../../data/roles.data";
 import { LucideCheck } from "../../../assets/icons";
 import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
+import checkStringExistence from "../../../utils/checkStringExistence";
 
 const RoleForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -17,7 +18,7 @@ const RoleForm = () => {
   const handleGoBack = () => formDispatch({ type: "GO_PREVIOUS_QUESTION" });
 
   const handleGoNext = () => {
-    if (!validateRole()) {
+    if (!checkStringExistence(formState.formData.role ?? "")) {
       return formDispatch({
         type: "VALIDATION_ERROR",
         payload: {
@@ -28,8 +29,6 @@ const RoleForm = () => {
     }
     return formDispatch({ type: "GO_NEXT_QUESTION" });
   };
-
-  const validateRole = () => (formState?.formData?.role ?? "")?.length > 0;
 
   const handleRoleSelection = () => {
     setTimeout(() => {

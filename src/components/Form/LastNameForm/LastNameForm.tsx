@@ -5,6 +5,7 @@ import { LucideCheck } from "../../../assets/icons";
 import "../Form.css";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
 import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
+import checkStringExistence from "../../../utils/checkStringExistence";
 
 const LastNameForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -12,7 +13,7 @@ const LastNameForm = () => {
   const handleGoBack = () => formDispatch({ type: "GO_PREVIOUS_QUESTION" });
 
   const handleGoNext = () => {
-    if (!validateLastName()) {
+    if (!checkStringExistence(formState.formData.lastName ?? "")) {
       return formDispatch({
         type: "VALIDATION_ERROR",
         payload: {
@@ -34,9 +35,6 @@ const LastNameForm = () => {
       payload: event.target.value.trim(),
     });
   };
-
-  const validateLastName = () =>
-    (formState?.formData?.lastName ?? "")?.length > 0;
 
   useKeyboardNavigation({
     functionToBeExecuted: handleGoNext,

@@ -5,6 +5,7 @@ import useFormContext from "../../../contexts/FormContext/formContext.hook";
 
 import "../Form.css";
 import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
+import checkStringExistence from "../../../utils/checkStringExistence";
 
 const FistNameForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -12,7 +13,7 @@ const FistNameForm = () => {
   const handleGoBack = () => formDispatch({ type: "GO_PREVIOUS_QUESTION" });
 
   const handleGoNext = () => {
-    if (!validateFirstName()) {
+    if (!checkStringExistence(formState.formData.firstName ?? "")) {
       return formDispatch({
         type: "VALIDATION_ERROR",
         payload: {
@@ -35,9 +36,6 @@ const FistNameForm = () => {
       payload: event.target.value.trim(),
     });
   };
-
-  const validateFirstName = () =>
-    (formState?.formData?.firstName ?? "")?.length > 0;
 
   useKeyboardNavigation({
     functionToBeExecuted: handleGoNext,

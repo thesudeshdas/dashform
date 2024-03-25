@@ -12,6 +12,7 @@ import useFormContext from "../../../contexts/FormContext/formContext.hook";
 import { industries } from "../../../data/industries.data";
 import { useEffect, useState } from "react";
 import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
+import checkStringExistence from "../../../utils/checkStringExistence";
 
 const IndustryForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -23,7 +24,7 @@ const IndustryForm = () => {
   const handleGoBack = () => formDispatch({ type: "GO_PREVIOUS_QUESTION" });
 
   const handleGoNext = () => {
-    if (!validateIndustry()) {
+    if (!checkStringExistence(formState.formData.industry ?? "")) {
       return formDispatch({
         type: "VALIDATION_ERROR",
         payload: {
@@ -34,9 +35,6 @@ const IndustryForm = () => {
     }
     return formDispatch({ type: "GO_NEXT_QUESTION" });
   };
-
-  const validateIndustry = () =>
-    (formState?.formData?.industry ?? "")?.length > 0;
 
   const handleIndustrySelection = () => {
     setTimeout(() => {

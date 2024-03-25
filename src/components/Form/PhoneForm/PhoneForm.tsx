@@ -5,6 +5,8 @@ import "../Form.css";
 import useFormContext from "../../../contexts/FormContext/formContext.hook";
 
 import { useKeyboardNavigation, useScrollNavigation } from "../../../hooks";
+import { phoneRegex } from "../../../constants/formValidation.constants";
+import checkStringExistence from "../../../utils/checkStringExistence";
 
 const PhoneForm = () => {
   const { formState, formDispatch } = useFormContext();
@@ -14,7 +16,7 @@ const PhoneForm = () => {
   const handleGoBack = () => formDispatch({ type: "GO_PREVIOUS_QUESTION" });
 
   const handleGoNext = () => {
-    if (formState?.formData?.phone?.length === 0) {
+    if (!checkStringExistence(formState.formData.phone ?? "")) {
       return formDispatch({
         type: "VALIDATION_ERROR",
         payload: {
@@ -38,7 +40,7 @@ const PhoneForm = () => {
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    if (/^\d+$/.test(event.target.value) === false) {
+    if (phoneRegex.test(event.target.value) === false) {
       return formDispatch({
         type: "VALIDATION_ERROR",
         payload: {
@@ -60,7 +62,9 @@ const PhoneForm = () => {
     });
   };
 
-  const validatePhone = () => (formState?.formData?.phone ?? "")?.length > 0;
+  const validatePhone = () =>
+    (formState?.formData?.phone ?? "")?.length > 4 &&
+    (formState?.formData?.phone ?? "")?.length < 15;
 
   useKeyboardNavigation({
     functionToBeExecuted: handleGoNext,
